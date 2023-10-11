@@ -1,7 +1,7 @@
 package mysql
 
 import (
-	"databae/sql"
+	"database/sql"
 
 	"github.com/santiaguito-g/snippetbox/pkg/models"
 )
@@ -10,7 +10,7 @@ type SnippetModel struct {
 	DB *sql.DB
 }
 
-func (m *SnippetModel) Insert(title, content, created, expires string) (int, err) {
+func (m *SnippetModel) Insert(title, content, created, expires string) (int, error) {
 	return 0, nil
 }
 
