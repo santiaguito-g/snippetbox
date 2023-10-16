@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"net/http"
 	"strconv"
 
@@ -21,7 +20,10 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := &templateData{Snippets: s}
+	app.render(w, r, "home.page.tmpl.html", &templateData{
+		Snippets: s,
+	})
+	/*data := &templateData{Snippets: s}
 
 	files := []string{
 		"./ui/html/home.page.tmpl.html",
@@ -40,6 +42,7 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		app.serverError(w, err)
 	}
+	*/
 }
 
 func (app *application) showSnippet(w http.ResponseWriter, r *http.Request) {
@@ -58,7 +61,10 @@ func (app *application) showSnippet(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := &templateData{Snippet: s}
+	app.render(w, r, "show.page.tmpl.html", &templateData{
+		Snippet: s,
+	})
+	/*data := &templateData{Snippet: s}
 
 	files := []string{
 		"./ui/html/show.page.tmpl.html",
@@ -77,6 +83,7 @@ func (app *application) showSnippet(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		app.serverError(w, err)
 	}
+	*/
 }
 
 func (app *application) createSnippet(w http.ResponseWriter, r *http.Request) {
